@@ -1,22 +1,27 @@
-# 테스트 플랜 — RED 백로그 (우선순위 1~4)
+# 테스트 플랜 — RED 백로그 (우선순위 1~4) ✅ 완료
 
 | 항목 | 내용 |
 |------|------|
 | **근거** | [`README.md`](../README.md) RED 작업 목록 · [`PRD.md`](PRD.md) 백로그 |
-| **선행 GREEN** | T1~T3, D-LOC-01, U-IN-01~02 (6 TC PASS) |
-| **Phase** | Ask (RED) — **`tests/`·`src/` 생성은 본 플랜 승인 후 RED 단계에서** |
+| **선행 GREEN** | T1~T3, D-LOC-01, U-IN-01~02 (6 TC) → **본 플랜 4 TC 포함 9 TC PASS** |
+| **Phase** | ~~Ask (RED)~~ → **GREEN 완료** (2026-06-25) · [`Report/007`](Report/007-arrr-test-plan-backlog.md) |
 | **C2C** | 1 To-Do : 1 TC · RED 먼저 · 판단 항목만 변환 |
+
+```powershell
+pytest tests/ -v
+# → 9 passed
+```
 
 ---
 
 ## 1. C2C 설계표 (전체)
 
-| ID | PRD (Epic) | To-Do | Test Case | Layer | Track | Fixture | 기대 결과 (RED Then) |
-|----|------------|-------|-----------|-------|-------|---------|----------------------|
-| **C-FLOW-01** | E-FLOW | Control 한 경로로 격자 분석 | `test_c_flow_01_partial_grid_analysis` | Control | C | `grid_g1` | `error is None`, `blank_coords==[(2,3),(4,4)]`, `validation.status=="incomplete"` |
-| **GM-D-LOC-01** | E-GM | D-LOC-01 golden 회귀 | golden approval 연결 | tests/golden | — | D-LOC-01 | golden 파일 ↔ pytest 출력 **일치** |
-| **U-IN-03** | E-IN | 중복 숫자 → E005 | `test_u_in_03_duplicate_cell_returns_e005` | Boundary | A | `grid_g1` (+ 변형) | `check_grid_input(grid) == E005` |
-| **D-HINT-01** | E-HINT | 힌트 1칸 좌표 | `test_d_hint_01_single_hint_coord` | Entity | B | `grid_g1` | 힌트 좌표 1개 *(spec 확정)* |
+| ID | PRD (Epic) | To-Do | Test Case | Layer | Track | Fixture | 기대 결과 (Then) | 상태 |
+|----|------------|-------|-----------|-------|-------|---------|------------------|------|
+| **C-FLOW-01** | E-FLOW | Control 한 경로로 격자 분석 | `test_c_flow_01_partial_grid_analysis` | Control | C | `grid_g1` | `error is None`, `blank_coords==[(2,3),(4,4)]`, `validation.status=="incomplete"` | ✅ |
+| **GM-D-LOC-01** | E-GM | D-LOC-01 golden 회귀 | golden approval 연결 | tests/golden | — | D-LOC-01 | golden 파일 ↔ pytest 출력 **일치** | ✅ |
+| **U-IN-03** | E-IN | 중복 숫자 → E005 | `test_u_in_03_duplicate_cell_returns_e005` | Boundary | A | `grid_g1` (+ 변형) | `check_grid_input(grid) == E005` | ✅ |
+| **D-HINT-01** | E-HINT | 힌트 1칸 좌표 | `test_d_hint_01_single_hint_coord` | Entity | B | `grid_g1` | `(2, 3)` — row-major 첫 빈칸 | ✅ |
 
 ---
 
@@ -29,16 +34,18 @@
 [spec] D-HINT-01 → [red] D-HINT-01 → [green] D-HINT-01
 ```
 
-| 순서 | TC ID | spec 선행 | GREEN 선행 | RED 완료 기준 |
-|------|-------|-----------|------------|---------------|
-| 1 | C-FLOW-01 | `docs/spec/c_flow_01.md` | 6 TC PASS | `pytest` 1 FAILED |
-| 2 | GM-D-LOC-01 | `_approval.py` 형식 | D-LOC-01 PASS | golden UPDATE + PASS |
-| 3 | U-IN-03 | `docs/spec/u_in_03.md` | U-IN-01/02 PASS | `pytest` 1 FAILED |
-| 4 | D-HINT-01 | `docs/spec/d_hint_01.md` | D-LOC-01 PASS | `pytest` 1 FAILED |
+| 순서 | TC ID | spec | RED | GREEN | Report |
+|------|-------|------|-----|-------|--------|
+| 1 | C-FLOW-01 | ✅ `c_flow_01.md` | ✅ | ✅ `817b58b` | [007](Report/007-arrr-test-plan-backlog.md) |
+| 2 | GM-D-LOC-01 | ✅ `_approval.py` | — | ✅ `912d39a` | [007](Report/007-arrr-test-plan-backlog.md) |
+| 3 | U-IN-03 | ✅ `u_in_03.md` | ✅ | ✅ `912d39a` | [007](Report/007-arrr-test-plan-backlog.md) |
+| 4 | D-HINT-01 | ✅ `d_hint_01.md` | ✅ | ✅ `51ca46d` | [007](Report/007-arrr-test-plan-backlog.md) |
 
 ---
 
-## 3. TC 상세 — 우선순위 1: C-FLOW-01
+## 3. TC 상세 — 우선순위 1: C-FLOW-01 ✅
+
+- [x] spec · RED · GREEN · export
 
 ### 3.1 개요
 
@@ -101,7 +108,9 @@ def test_c_flow_01_partial_grid_analysis(grid_g1):
 
 ---
 
-## 4. TC 상세 — 우선순위 2: GM-D-LOC-01
+## 4. TC 상세 — 우선순위 2: GM-D-LOC-01 ✅
+
+- [x] golden 생성 · PASS · export
 
 ### 4.1 개요
 
@@ -145,7 +154,9 @@ def test_c_flow_01_partial_grid_analysis(grid_g1):
 
 ---
 
-## 5. TC 상세 — 우선순위 3: U-IN-03
+## 5. TC 상세 — 우선순위 3: U-IN-03 ✅
+
+- [x] spec · RED · GREEN · export
 
 ### 5.1 개요
 
@@ -156,7 +167,7 @@ def test_c_flow_01_partial_grid_analysis(grid_g1):
 | **에러 코드 (안)** | `E005` — 1~16 중복 |
 | **테스트 파일** | `tests/boundary/test_u_in_03_duplicate_cell_returns_e005.py` |
 
-### 5.2 판정 순서 (spec 확정 예정)
+### 5.2 판정 순서 (spec 확정)
 
 ```
 1. grid is None        → E003
@@ -193,7 +204,9 @@ def test_u_in_03_duplicate_cell_returns_e005(grid_g1):
 
 ---
 
-## 6. TC 상세 — 우선순위 4: D-HINT-01
+## 6. TC 상세 — 우선순위 4: D-HINT-01 ✅
+
+- [x] spec · RED · GREEN · export
 
 ### 6.1 개요
 
@@ -204,15 +217,13 @@ def test_u_in_03_duplicate_cell_returns_e005(grid_g1):
 | **함수 (안)** | `hint_one_cell(grid)` — `src/entity/` *(spec 확정)* |
 | **테스트 파일** | `tests/entity/test_d_hint_01_single_hint_coord.py` |
 
-### 6.2 Given / When / Then (spec 확정 전 · 초안)
+### 6.2 Given / When / Then (spec 확정)
 
 | | 내용 |
 |---|------|
 | **Given** | `grid_g1` — 빈칸 2개 |
 | **When** | `hint_one_cell(grid_g1)` |
-| **Then** | `(2, 3)` 또는 `(4, 4)` 중 **1-index 좌표 1개** 반환 *(row-major 첫 빈칸 = `(2,3)`)* |
-
-**초안 Then:** `hint_one_cell(grid_g1) == (2, 3)` — spec·Mom Test 후 확정
+| **Then** | `(2, 3)` — 1-index, row-major **첫 빈칸** |
 
 ### 6.3 RED skeleton (예시)
 
@@ -234,7 +245,16 @@ spec 작성 전 Ask:
 
 ## 7. RED 공통 체크리스트
 
-각 TC RED 착수 시:
+### 본 플랜 (1~4) — 완료
+
+| TC ID | spec | RED | GREEN | export |
+|-------|------|-----|-------|--------|
+| C-FLOW-01 | [x] | [x] | [x] | [x] |
+| GM-D-LOC-01 | [x] | — | [x] | [x] |
+| U-IN-03 | [x] | [x] | [x] | [x] |
+| D-HINT-01 | [x] | [x] | [x] | [x] |
+
+### 다음 RED 착수 시 (템플릿)
 
 - [ ] `git checkout spec` — 해당 TC spec 문서
 - [ ] `git checkout red`
@@ -276,6 +296,22 @@ spec 작성 전 Ask:
 | 문서 | 역할 |
 |------|------|
 | [`PRD.md`](PRD.md) | INV · E · AC SSOT |
-| [`README.md`](../README.md) | RED/GREEN 작업 목록 |
+| [`README.md`](../README.md) | GREEN 현황 · 다음 백로그 |
 | [`learning-guide.md`](learning-guide.md) | ARRR · 브랜치 절차 |
+| [`Report/007-arrr-test-plan-backlog.md`](Report/007-arrr-test-plan-backlog.md) | **본 플랜 완료** export |
 | [`Report/006-arrr-d-loc-01-entity.md`](Report/006-arrr-d-loc-01-entity.md) | 직전 GREEN 사이클 |
+
+---
+
+## 11. 다음 백로그 (미착수)
+
+| 우선순위 | Epic | TC (안) | To-Do | 체크 |
+|----------|------|---------|-------|------|
+| 1 | E-FLOW | C-FLOW-02 | `analyze_grid(None)` → `error==E003` | [ ] |
+| 2 | E-GM | GM-T2 | T2 golden 확장 | [ ] |
+| 3 | E-GM | GM-U-IN-01 | U-IN-01 golden 확장 | [ ] |
+| 4 | E-IN | U-IN-04 | 격자 크기 ≠ 4×4 처리 | [ ] |
+| 5 | E-HINT | D-HINT-02 | 빈칸 1개일 때 힌트 | [ ] |
+| 6 | — | — | `green` → `main` merge | [ ] |
+
+> 새 TC는 **별도 test-plan** 또는 위 표에서 1행씩 RED 착수.
