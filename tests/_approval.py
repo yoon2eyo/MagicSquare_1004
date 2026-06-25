@@ -26,3 +26,12 @@ def format_coords(coords: list[tuple[int, int]]) -> str:
     lines.append("# 1-index row, col")
     lines.append("# row-major (I6)")
     return "\n".join(lines) + "\n"
+
+
+def format_validation(result: dict[str, object]) -> str:
+    lines = [str(result["status"])]
+    for line_id in result["failed_lines"]:
+        lines.append(str(line_id))
+    lines.append("# status")
+    lines.append("# failed_lines (R→C→D order)")
+    return "\n".join(lines) + "\n"

@@ -1,5 +1,6 @@
 """T2 — validate_lines: 완성 격자에서 한 칸 틀리면 fail + failed_lines."""
 
+from tests._approval import assert_matches_golden, format_validation
 from src.entity.validate_lines import validate_lines
 
 
@@ -13,3 +14,4 @@ def test_t2_row_sum_not_34_is_fail(grid_complete):
     assert result["status"] == "fail"
     assert "R2" in result["failed_lines"]
     assert "C2" in result["failed_lines"]
+    assert_matches_golden("t2", format_validation(result))
