@@ -742,7 +742,7 @@ Mom Test 규칙 준수. 질문 1개만. 솔루션 금지.
 
 - [x] R-G-I-O 표 작성 — [`docs/spec/validate_lines.md`](spec/validate_lines.md)
 - [x] `validate_lines` 계약 문서화 (C2C T1~T3, 다음 RED: T2)
-- [ ] `spec` 브랜치 커밋
+- [x] `spec` 브랜치 커밋 (`fc02822`)
 
 ### ③ red
 
