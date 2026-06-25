@@ -67,7 +67,7 @@
 | **E-HINT** | 힌트 1칸 (row-major 첫 빈칸) | B | Entity | ✅ GREEN |
 | **E-IN** | 격자 입력 유효성 (None·범위·중복) | A | Boundary | ✅ GREEN |
 | **E-FLOW** | Boundary → Entity 검증 흐름 조합 | C | Control | ✅ GREEN |
-| **E-GM** | Golden Master 회귀 안전망 | — | tests/golden | ✅ D-LOC-01 |
+| **E-GM** | Golden Master 회귀 안전망 | — | tests/golden | ✅ D-LOC-01 · T2 · U-IN-01 |
 
 ### Epic 상세
 
@@ -191,7 +191,6 @@
 
 | 후보 | Epic | 필요성 |
 |------|------|--------|
-| golden U-IN-01 | E-GM | 회귀 확장 |
 | 격자 크기 검증 | E-IN | 4×4 아닌 입력 |
 | 힌트 2번째 빈칸 | E-HINT | 빈칸 1개 남을 때 |
 
