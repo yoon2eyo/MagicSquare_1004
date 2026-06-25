@@ -9,7 +9,7 @@
 ```powershell
 pip install -e ".[dev]"
 pytest tests/ -v
-# → 9 passed
+# → 10 passed
 ```
 
 ---
@@ -27,10 +27,11 @@ pytest tests/ -v
 | U-IN-02 | E-IN | A | Boundary | `tests/boundary/test_u_in_02_out_of_range_cell_returns_e004.py` |
 | U-IN-03 | E-IN | A | Boundary | `tests/boundary/test_u_in_03_duplicate_cell_returns_e005.py` |
 | C-FLOW-01 | E-FLOW | C | Control | `tests/control/test_c_flow_01_partial_grid_analysis.py` |
+| C-FLOW-02 | E-FLOW | C | Control | `tests/control/test_c_flow_02_none_grid_returns_e003.py` |
 
 **Golden Master:** D-LOC-01 — `tests/golden/d_loc_01_approved.txt` · [`Report/007`](docs/Report/007-arrr-test-plan-backlog.md)
 
-현재: **`pytest tests/ -v` → 9 passed**
+현재: **`pytest tests/ -v` → 10 passed**
 
 ### ECB 구현 맵
 
@@ -46,10 +47,10 @@ pytest tests/ -v
 
 | 우선순위 | Epic | TC (안) | To-Do |
 |----------|------|---------|-------|
-| 1 | E-FLOW | C-FLOW-02 | `analyze_grid(None)` → `error==E003` |
-| 2 | E-GM | GM-T2 등 | T2 · U-IN-01 golden 확장 |
-| 3 | E-IN | U-IN-04 | 격자 크기 ≠ 4×4 처리 |
-| 4 | E-HINT | D-HINT-02 | 빈칸 1개일 때 힌트 |
+| 1 | E-GM | GM-T2 등 | T2 · U-IN-01 golden 확장 |
+| 2 | E-IN | U-IN-04 | 격자 크기 ≠ 4×4 처리 |
+| 3 | E-HINT | D-HINT-02 | 빈칸 1개일 때 힌트 |
+| 4 | — | — | `green` → `main` merge |
 
 브랜치: `spec` → `red` → `green` · 규칙: [`.cursorrules`](.cursorrules)
 
@@ -85,5 +86,5 @@ spec → red (RED) → green (GREEN → REFACTOR → export) → main
 | [`docs/test-plan.md`](docs/test-plan.md) | test-plan 백로그 (1~4 완료) |
 | [`docs/c2c-dual-track-concepts.md`](docs/c2c-dual-track-concepts.md) | C2C · Dual-Track · ARRR |
 | [`docs/learning-guide.md`](docs/learning-guide.md) | Mom Test · 브랜치별 절차 |
-| [`docs/Report/`](docs/Report/) | ARRR 사이클 보고 (001~007) |
+| [`docs/Report/`](docs/Report/) | ARRR 사이클 보고 (001~008) |
 | [`AGENTS.md`](AGENTS.md) | 실행 · ECB 구조 |

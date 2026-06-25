@@ -6,7 +6,7 @@
 | **페르소나** | 부분 마방진(빈칸 2개) 학습자 |
 | **아키텍처** | ECB · Dual-Track · C2C · ARRR |
 | **격자** | 4×4 (`GRID_SIZE = 4`) |
-| **갱신** | 2026-06-25 — **9 TC GREEN** (Entity 5 · Boundary 3 · Control 1 · GM D-LOC-01) |
+| **갱신** | 2026-06-25 — **10 TC GREEN** (Entity 5 · Boundary 3 · Control 2 · GM D-LOC-01) |
 
 ---
 
@@ -132,6 +132,7 @@
 | AC ID | Epic | Given | When | Then | TC | 상태 |
 |-------|------|-------|------|------|-----|------|
 | AC-FLOW-01 | E-FLOW | `grid_g1` (입력 유효) | `analyze_grid` | `error=None`, `blank_coords=[(2,3),(4,4)]`, `validation.incomplete` | C-FLOW-01 | ✅ |
+| AC-FLOW-02 | E-FLOW | `grid=None` | `analyze_grid` | `error=E003`, `blank_coords=[]`, `validation={}` | C-FLOW-02 | ✅ |
 
 ### Golden Master
 
@@ -168,6 +169,7 @@
 | E-IN | 범위 밖 → E004 | U-IN-02 | [005](Report/005-arrr-u-in-02-boundary.md) |
 | E-LOC | 빈칸 좌표 | D-LOC-01 | [006](Report/006-arrr-d-loc-01-entity.md) |
 | E-FLOW · E-GM · E-IN · E-HINT | test-plan 1~4 | C-FLOW-01, GM, U-IN-03, D-HINT-01 | [007](Report/007-arrr-test-plan-backlog.md) |
+| E-FLOW | None → E003 (Control) | C-FLOW-02 | [008](Report/008-arrr-c-flow-02-control.md) |
 
 ---
 
@@ -185,7 +187,6 @@
 
 | 후보 | Epic | 필요성 |
 |------|------|--------|
-| `analyze_grid(None)` → E003 | E-FLOW | Control 오류 경로 |
 | golden T2, U-IN-01 | E-GM | 회귀 확장 |
 | 격자 크기 검증 | E-IN | 4×4 아닌 입력 |
 | 힌트 2번째 빈칸 | E-HINT | 빈칸 1개 남을 때 |
@@ -196,14 +197,14 @@
 
 ```powershell
 pytest tests/ -v
-# → 9 passed
+# → 10 passed
 ```
 
 | Track | TC |
 |-------|-----|
 | Entity | T1, T2, T3, D-LOC-01, D-HINT-01 |
 | Boundary | U-IN-01, U-IN-02, U-IN-03 |
-| Control | C-FLOW-01 |
+| Control | C-FLOW-01, C-FLOW-02 |
 
 ---
 

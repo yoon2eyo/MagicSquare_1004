@@ -299,7 +299,7 @@ spec 작성 전 Ask:
 | [`README.md`](../README.md) | GREEN 현황 · 다음 백로그 |
 | [`learning-guide.md`](learning-guide.md) | ARRR · 브랜치 절차 |
 | [`Report/007-arrr-test-plan-backlog.md`](Report/007-arrr-test-plan-backlog.md) | **본 플랜 완료** export |
-| [`Report/006-arrr-d-loc-01-entity.md`](Report/006-arrr-d-loc-01-entity.md) | 직전 GREEN 사이클 |
+| [`Report/008-arrr-c-flow-02-control.md`](Report/008-arrr-c-flow-02-control.md) | C-FLOW-02 export |
 
 ---
 
@@ -307,7 +307,7 @@ spec 작성 전 Ask:
 
 | 우선순위 | Epic | TC (안) | To-Do | 체크 |
 |----------|------|---------|-------|------|
-| 1 | E-FLOW | C-FLOW-02 | `analyze_grid(None)` → `error==E003` | [ ] |
+| 1 | E-FLOW | C-FLOW-02 | `analyze_grid(None)` → `error==E003` | [x] |
 | 2 | E-GM | GM-T2 | T2 golden 확장 | [ ] |
 | 3 | E-GM | GM-U-IN-01 | U-IN-01 golden 확장 | [ ] |
 | 4 | E-IN | U-IN-04 | 격자 크기 ≠ 4×4 처리 | [ ] |
