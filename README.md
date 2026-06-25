@@ -85,5 +85,5 @@ spec → red (RED) → green (GREEN → REFACTOR → export) → main
 | [`docs/test-plan.md`](docs/test-plan.md) | test-plan 백로그 (1~4 완료) |
 | [`docs/c2c-dual-track-concepts.md`](docs/c2c-dual-track-concepts.md) | C2C · Dual-Track · ARRR |
 | [`docs/learning-guide.md`](docs/learning-guide.md) | Mom Test · 브랜치별 절차 |
-| [`docs/Report/`](docs/Report/) | ARRR 사이클 보고 (001~012) |
+| [`docs/Report/`](docs/Report/) | ARRR 사이클 보고 (001~013) · **main merge** |
 | [`AGENTS.md`](AGENTS.md) | 실행 · ECB 구조 |

@@ -312,6 +312,6 @@ spec 작성 전 Ask:
 | 3 | E-GM | GM-U-IN-01 | U-IN-01 golden 확장 | [x] |
 | 4 | E-IN | U-IN-04 | 격자 크기 ≠ 4×4 처리 | [x] |
 | 5 | E-HINT | D-HINT-02 | 빈칸 1개일 때 힌트 | [x] |
-| 6 | — | — | `green` → `main` merge | [ ] |
+| 6 | — | — | `green` → `main` merge | [x] |
 
 > 새 TC는 **별도 test-plan** 또는 위 표에서 1행씩 RED 착수.
