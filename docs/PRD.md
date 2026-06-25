@@ -102,8 +102,8 @@
 
 #### E-GM — Golden Master
 
-- **인프라:** `tests/_approval.py`, `tests/golden/d_loc_01_approved.txt`
-- **대상:** D-LOC-01 (확장: T2, U-IN-01 등)
+- **인프라:** `tests/_approval.py`, `tests/golden/`
+- **대상:** D-LOC-01 ✅ · **T2** ✅ (확장: U-IN-01)
 
 ---
 
@@ -139,6 +139,7 @@
 | AC ID | Epic | Given | Then | TC | 상태 |
 |-------|------|-------|------|-----|------|
 | AC-GM-01 | E-GM | D-LOC-01 PASS | golden ↔ `find_blank_coords` 출력 일치 | GM-D-LOC-01 | ✅ |
+| AC-GM-02 | E-GM | T2 PASS | golden ↔ `validate_lines` fail 출력 일치 | GM-T2 | ✅ |
 
 ### AC 판정 우선순위 (`check_grid_input`)
 
@@ -170,6 +171,7 @@
 | E-LOC | 빈칸 좌표 | D-LOC-01 | [006](Report/006-arrr-d-loc-01-entity.md) |
 | E-FLOW · E-GM · E-IN · E-HINT | test-plan 1~4 | C-FLOW-01, GM, U-IN-03, D-HINT-01 | [007](Report/007-arrr-test-plan-backlog.md) |
 | E-FLOW | None → E003 (Control) | C-FLOW-02 | [008](Report/008-arrr-c-flow-02-control.md) |
+| E-GM | T2 golden | GM-T2 | [009](Report/009-arrr-gm-t2-golden.md) |
 
 ---
 
@@ -187,7 +189,7 @@
 
 | 후보 | Epic | 필요성 |
 |------|------|--------|
-| golden T2, U-IN-01 | E-GM | 회귀 확장 |
+| golden U-IN-01 | E-GM | 회귀 확장 |
 | 격자 크기 검증 | E-IN | 4×4 아닌 입력 |
 | 힌트 2번째 빈칸 | E-HINT | 빈칸 1개 남을 때 |
 
