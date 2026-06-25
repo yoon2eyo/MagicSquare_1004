@@ -200,9 +200,9 @@ Mom Test 사실 1개와 연결해 설명해 주세요. 코드 작성 금지.
 ```
 /red-skeleton
 Test ID: T2 — test_t2_row_sum_not_34_is_fail
-Given: 완성 마방진에서 (2,2) 값 6→7 변경
+Given: grid_complete fixture, 1-index (2,2) = 0-index [1][1] 값 11→12 변경
 Then: status="fail", failed_lines에 "R2", "C2" 포함
-Fixture: 완성 격자 fixture 필요 (conftest에 추가 요청)
+Fixture: grid_complete (conftest — G1 빈칸 채움, spec §5.3 참고)
 src/ 수정 금지.
 ```
 
@@ -603,9 +603,9 @@ D-LOC-01: find_blank_coords(grid_g1) → [(2,3),(4,4)] (1-index, row-major)
 ```
 /red-skeleton
 Test ID: T2 — test_t2_row_sum_not_34_is_fail
-Given: 완성 마방진에서 (2,2) 값 6→7 변경
+Given: grid_complete fixture, 1-index (2,2) = 0-index [1][1] 값 11→12 변경
 Then: status="fail", failed_lines에 "R2", "C2" 포함
-Fixture: 완성 격자 fixture 필요 (conftest에 추가 요청)
+Fixture: grid_complete (conftest — G1 빈칸 채움, spec §5.3 참고)
 src/ 수정 금지.
 ```
 

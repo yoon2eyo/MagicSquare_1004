@@ -154,8 +154,6 @@ def validate_lines(grid: list[list[int]]) -> dict[str, object]:
 | **Given** | `grid_complete`에서 **1-index (2,2)** = 0-index `[1][1]` 값 `11` → `12` 변경 |
 | **Then** | `status == "fail"`, `"R2"`, `"C2"` ∈ `failed_lines` |
 
-> learning-guide RED 예의 「(2,2) 값 6→7」은 Then(`R2`, `C2`)과 좌표가 맞지 않아, 본 spec에서는 **1-index (2,2) 셀** 기준으로 통일한다.
-
 ---
 
 ## 6. 범위 · 비범위
