@@ -299,7 +299,7 @@ spec 작성 전 Ask:
 | [`README.md`](../README.md) | GREEN 현황 · 다음 백로그 |
 | [`learning-guide.md`](learning-guide.md) | ARRR · 브랜치 절차 |
 | [`Report/007-arrr-test-plan-backlog.md`](Report/007-arrr-test-plan-backlog.md) | **본 플랜 완료** export |
-| [`Report/010-arrr-gm-u-in-01-golden.md`](Report/010-arrr-gm-u-in-01-golden.md) | GM-U-IN-01 export |
+| [`Report/011-arrr-u-in-04-boundary.md`](Report/011-arrr-u-in-04-boundary.md) | U-IN-04 export |
 
 ---
 
@@ -310,7 +310,7 @@ spec 작성 전 Ask:
 | 1 | E-FLOW | C-FLOW-02 | `analyze_grid(None)` → `error==E003` | [x] |
 | 2 | E-GM | GM-T2 | T2 golden 확장 | [x] |
 | 3 | E-GM | GM-U-IN-01 | U-IN-01 golden 확장 | [x] |
-| 4 | E-IN | U-IN-04 | 격자 크기 ≠ 4×4 처리 | [ ] |
+| 4 | E-IN | U-IN-04 | 격자 크기 ≠ 4×4 처리 | [x] |
 | 5 | E-HINT | D-HINT-02 | 빈칸 1개일 때 힌트 | [ ] |
 | 6 | — | — | `green` → `main` merge | [ ] |
 

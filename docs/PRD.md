@@ -6,7 +6,7 @@
 | **페르소나** | 부분 마방진(빈칸 2개) 학습자 |
 | **아키텍처** | ECB · Dual-Track · C2C · ARRR |
 | **격자** | 4×4 (`GRID_SIZE = 4`) |
-| **갱신** | 2026-06-25 — **10 TC GREEN** (Entity 5 · Boundary 3 · Control 2 · GM D-LOC-01) |
+| **갱신** | 2026-06-25 — **11 TC GREEN** (Entity 5 · Boundary 4 · Control 2 · GM 3) |
 
 ---
 
@@ -91,7 +91,7 @@
 #### E-IN — `check_grid_input`
 
 - **모듈:** `src/boundary/grid_input.py`, `src/boundary/error_codes.py`
-- **오류 코드:** `E003`(None), `E004`(범위 밖), `E005`(중복)
+- **오류 코드:** `E003`(None), `E004`(범위 밖), `E005`(중복), `E006`(크기 ≠ 4×4)
 - **spec:** [`docs/spec/u_in_01.md`](spec/u_in_01.md), [`u_in_02.md`](spec/u_in_02.md), [`u_in_03.md`](spec/u_in_03.md)
 
 #### E-FLOW — `analyze_grid`
@@ -126,6 +126,7 @@
 | AC-IN-01 | E-IN | `grid=None` | `check_grid_input` | `E003` | U-IN-01 | ✅ |
 | AC-IN-02 | E-IN | `grid_g1`, [0][0]=17 | `check_grid_input` | `E004` | U-IN-02 | ✅ |
 | AC-IN-03 | E-IN | `grid_g1`, [0][0]=7 (중복) | `check_grid_input` | `E005` | U-IN-03 | ✅ |
+| AC-IN-04 | E-IN | 3×4 격자 | `check_grid_input` | `E006` | U-IN-04 | ✅ |
 
 ### Track C — Control (`tests/control/`)
 
@@ -146,9 +147,10 @@
 
 ```
 1. grid is None        → E003
-2. cell ∉ {0, 1~16}    → E004
-3. duplicate in 1~16   → E005
-4. otherwise           → None
+2. size ≠ 4×4         → E006
+3. cell ∉ {0, 1~16}    → E004
+4. duplicate in 1~16   → E005
+5. otherwise           → None
 ```
 
 ### AC 판정 우선순위 (`validate_lines`)
@@ -174,6 +176,7 @@
 | E-FLOW | None → E003 (Control) | C-FLOW-02 | [008](Report/008-arrr-c-flow-02-control.md) |
 | E-GM | T2 golden | GM-T2 | [009](Report/009-arrr-gm-t2-golden.md) |
 | E-GM | U-IN-01 golden | GM-U-IN-01 | [010](Report/010-arrr-gm-u-in-01-golden.md) |
+| E-IN | 격자 크기 ≠ 4×4 → E006 | U-IN-04 | [011](Report/011-arrr-u-in-04-boundary.md) |
 
 ---
 
@@ -191,8 +194,8 @@
 
 | 후보 | Epic | 필요성 |
 |------|------|--------|
-| 격자 크기 검증 | E-IN | 4×4 아닌 입력 |
 | 힌트 2번째 빈칸 | E-HINT | 빈칸 1개 남을 때 |
+| Control E006 경로 | E-FLOW | `analyze_grid` + 잘못된 크기 |
 
 ---
 
@@ -200,13 +203,13 @@
 
 ```powershell
 pytest tests/ -v
-# → 10 passed
+# → 11 passed
 ```
 
 | Track | TC |
 |-------|-----|
 | Entity | T1, T2, T3, D-LOC-01, D-HINT-01 |
-| Boundary | U-IN-01, U-IN-02, U-IN-03 |
+| Boundary | U-IN-01, U-IN-02, U-IN-03, U-IN-04 |
 | Control | C-FLOW-01, C-FLOW-02 |
 
 ---
