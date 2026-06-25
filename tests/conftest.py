@@ -27,6 +27,21 @@ _GRID_VALID_MAGIC = [
 ]
 
 
+# G1 (2,3)만 채움 — 빈칸 (4,4) 1개 (D-HINT-02)
+_GRID_G1_ONE_BLANK = [
+    [16, 2, 3, 13],
+    [5, 11, 10, 8],
+    [9, 7, 6, 12],
+    [4, 14, 15, 0],
+]
+
+
+@pytest.fixture
+def grid_g1_one_blank():
+    """G1에서 (2,3)=10 채움 — 빈칸 (4,4)만 남음."""
+    return [row[:] for row in _GRID_G1_ONE_BLANK]
+
+
 @pytest.fixture
 def grid_g1():
     """I6: 1-index row-major, 0=빈칸."""
