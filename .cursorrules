@@ -1,0 +1,50 @@
+# Magic Square — Domain · Contract · TDD
+
+## 프로젝트
+4×4 마방진 자동 검증. C2C · Dual-Track(ECB) · ARRR.
+
+## ECB 방향
+- **Entity** (`src/entity/`): 순수 도메인 로직. Boundary/Control import 금지.
+- **Control** (`src/control/`): Entity 조합·흐름.
+- **Boundary** (`src/boundary/`): UI·입출력·에러 코드.
+
+## Dual-Track 테스트
+- Track B (Logic): `tests/entity/`
+- Track A (UI/Boundary): `tests/boundary/`
+
+## 상수 SSOT
+- 마방진 합 = **34** → `src/entity/constants.py`의 `MAGIC_CONSTANT`만 사용.
+- 빈칸 = **0** → `BLANK_CELL`만 사용.
+- 코드 전역에 `34`, `0` 리터럴 하드코딩 금지.
+
+## validate_lines 계약
+입력: 4×4 격자 (0=빈칸, 1~16)
+
+| status | 조건 |
+|--------|------|
+| `incomplete` | 격자에 0(빈칸)이 하나라도 있음 |
+| `pass` | 16칸 모두 채워짐 + 10선 합이 모두 34 |
+| `fail` | 어느 한 줄이라도 합 ≠ 34 → `failed_lines` 반환 |
+
+줄 ID (10선): `R1`~`R4`(행), `C1`~`C4`(열), `D1`·`D2`(대각선)
+
+## TDD · ARRR
+1. **RED (Ask)**: 테스트만 작성. `src/` 수정 금지. `pytest.fail` 1줄로 의도적 실패.
+2. **GREEN (Respond)**: RED 1개당 최소 구현 1커밋. `pytest.fail` → `assert` 교체.
+3. **REFACTOR (Refine)**: 계약 불변. pytest PASS + Golden Master 일치.
+4. **REPEAT**: 문서화 후 다음 RED.
+
+## 금지
+- `skip`, `xfail` 사용 금지
+- RED 단계에서 `src/` 수정 금지
+- GREEN 단계에서 리팩터링 금지 (REFACTOR에서만)
+- assert 완화 금지
+- 한 RED에 여러 ID 동시 해결 금지
+
+## C2C 3원칙
+1. 판단 항목만 변환 (PRD → To-Do → TC)
+2. 1 To-Do : 1 Test Case
+3. RED 먼저
+
+## 브랜치 전략
+`main` → `staging` → `spec` → `red` → `green`

@@ -1,0 +1,13 @@
+[project]
+name = "magic-square"
+version = "0.1.0"
+description = "4×4 마방진 — TDD·ECB 학습 프로젝트"
+readme = "AGENTS.md"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
