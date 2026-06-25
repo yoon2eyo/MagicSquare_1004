@@ -17,6 +17,11 @@ tests/boundary/ # Track A — UI
 ```powershell
 pip install -e ".[dev]"
 pytest tests/ -v
+
+# Flask 데모 (구현 확인)
+pip install -e ".[web]"
+python -m src.boundary.flask_app
+# → http://127.0.0.1:5000
 ```
 
 ## ARRR 명령

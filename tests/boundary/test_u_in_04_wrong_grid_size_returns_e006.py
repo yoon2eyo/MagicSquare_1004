@@ -1,6 +1,7 @@
 """U-IN-04 — check_grid_input: 격자 크기 ≠ 4×4 → E006."""
 
-import pytest
+from src.boundary.error_codes import E006
+from src.boundary.grid_input import check_grid_input
 
 
 def test_u_in_04_wrong_grid_size_returns_e006():
@@ -11,5 +12,6 @@ def test_u_in_04_wrong_grid_size_returns_e006():
         [9, 10, 11, 12],
     ]
     # When: check_grid_input(grid)
+    result = check_grid_input(grid)
     # Then: E006
-    pytest.fail("RED: U-IN-04 - No implementation, intentional failure")
+    assert result == E006

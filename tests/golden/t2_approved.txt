@@ -1,0 +1,6 @@
+fail
+R2
+C2
+D1
+# status
+# failed_lines (R→C→D order)
