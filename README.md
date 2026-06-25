@@ -83,6 +83,7 @@ spec → red (RED) → green (GREEN → REFACTOR → export) → main
 |------|------|
 | [`docs/PRD.md`](docs/PRD.md) | INV · E · AC |
 | [`docs/test-plan.md`](docs/test-plan.md) | test-plan 백로그 (1~4 완료) |
+| [`docs/mom-test-guide.md`](docs/mom-test-guide.md) | Mom Test · 요구 구체화 · AGENTS 초안 |
 | [`docs/c2c-dual-track-concepts.md`](docs/c2c-dual-track-concepts.md) | C2C · Dual-Track · ARRR |
 | [`docs/learning-guide.md`](docs/learning-guide.md) | Mom Test · 브랜치별 절차 |
 | [`docs/Report/`](docs/Report/) | ARRR 사이클 보고 (001~013) · **main merge** |

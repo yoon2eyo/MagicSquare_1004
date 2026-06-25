@@ -3,7 +3,8 @@
 4×4 마방진을 **만드는 과정**을 통해 TDD·ECB·ARRR을 체득하는 실습 문서입니다.  
 각 단계마다 **브랜치**, **슬래시 명령**, **프롬프트 입력 예**를 함께 적었습니다.
 
-> **개념 먼저:** C2C · Dual-Track · ARRR이 왜 같은 이야기인지 → [`c2c-dual-track-concepts.md`](c2c-dual-track-concepts.md)
+> **개념 먼저:** C2C · Dual-Track · ARRR → [`c2c-dual-track-concepts.md`](c2c-dual-track-concepts.md)  
+> **Mom Test (에이전트·요구 구체화):** [`mom-test-guide.md`](mom-test-guide.md)
 
 ---
 
