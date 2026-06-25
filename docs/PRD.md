@@ -6,7 +6,7 @@
 | **페르소나** | 부분 마방진(빈칸 2개) 학습자 |
 | **아키텍처** | ECB · Dual-Track · C2C · ARRR |
 | **격자** | 4×4 (`GRID_SIZE = 4`) |
-| **갱신** | 2026-06-25 — **11 TC GREEN** (Entity 5 · Boundary 4 · Control 2 · GM 3) |
+| **갱신** | 2026-06-25 — **12 TC GREEN** (Entity 6 · Boundary 4 · Control 2 · GM 3) |
 
 ---
 
@@ -118,6 +118,7 @@
 | AC-VAL-03 | E-VAL | `grid_valid_magic` | `validate_lines` | `pass` | T3 | ✅ |
 | AC-LOC-01 | E-LOC | `grid_g1` | `find_blank_coords` | `[(2,3),(4,4)]` | D-LOC-01 | ✅ |
 | AC-HINT-01 | E-HINT | `grid_g1` | `hint_one_cell` | `(2, 3)` | D-HINT-01 | ✅ |
+| AC-HINT-02 | E-HINT | `grid_g1_one_blank` | `hint_one_cell` | `(4, 4)` | D-HINT-02 | ✅ |
 
 ### Track A — Boundary (`tests/boundary/`)
 
@@ -177,6 +178,7 @@
 | E-GM | T2 golden | GM-T2 | [009](Report/009-arrr-gm-t2-golden.md) |
 | E-GM | U-IN-01 golden | GM-U-IN-01 | [010](Report/010-arrr-gm-u-in-01-golden.md) |
 | E-IN | 격자 크기 ≠ 4×4 → E006 | U-IN-04 | [011](Report/011-arrr-u-in-04-boundary.md) |
+| E-HINT | 빈칸 1개 힌트 | D-HINT-02 | [012](Report/012-arrr-d-hint-02-entity.md) |
 
 ---
 
@@ -185,6 +187,7 @@
 | Fixture | 용도 | AC |
 |---------|------|-----|
 | `grid_g1` | 빈칸 2개 — (2,3), (4,4) | T1, D-LOC-01, U-IN-02/03, C-FLOW-01, D-HINT-01 |
+| `grid_g1_one_blank` | 빈칸 1개 — (4,4) | D-HINT-02 |
 | `grid_complete` | G1 빈칸 채움 | T2 |
 | `grid_valid_magic` | 유효 마방진 (10선=34) | T3 |
 
@@ -194,8 +197,7 @@
 
 | 후보 | Epic | 필요성 |
 |------|------|--------|
-| 힌트 2번째 빈칸 | E-HINT | 빈칸 1개 남을 때 |
-| Control E006 경로 | E-FLOW | `analyze_grid` + 잘못된 크기 |
+| `green` → `main` merge | — | 릴리스 |
 
 ---
 
@@ -203,12 +205,12 @@
 
 ```powershell
 pytest tests/ -v
-# → 11 passed
+# → 12 passed
 ```
 
 | Track | TC |
 |-------|-----|
-| Entity | T1, T2, T3, D-LOC-01, D-HINT-01 |
+| Entity | T1, T2, T3, D-LOC-01, D-HINT-01, D-HINT-02 |
 | Boundary | U-IN-01, U-IN-02, U-IN-03, U-IN-04 |
 | Control | C-FLOW-01, C-FLOW-02 |
 

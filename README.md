@@ -9,7 +9,7 @@
 ```powershell
 pip install -e ".[dev]"
 pytest tests/ -v
-# → 11 passed
+# → 12 passed
 ```
 
 ---
@@ -23,6 +23,7 @@ pytest tests/ -v
 | T3 | E-VAL | B | Entity | `tests/entity/test_t3_valid_magic_square_is_pass.py` |
 | D-LOC-01 | E-LOC | B | Entity | `tests/entity/test_d_loc_01_blank_coords_row_major.py` |
 | D-HINT-01 | E-HINT | B | Entity | `tests/entity/test_d_hint_01_single_hint_coord.py` |
+| D-HINT-02 | E-HINT | B | Entity | `tests/entity/test_d_hint_02_one_blank_hint_coord.py` |
 | U-IN-01 | E-IN | A | Boundary | `tests/boundary/test_u_in_01_none_grid_returns_e003.py` |
 | U-IN-02 | E-IN | A | Boundary | `tests/boundary/test_u_in_02_out_of_range_cell_returns_e004.py` |
 | U-IN-03 | E-IN | A | Boundary | `tests/boundary/test_u_in_03_duplicate_cell_returns_e005.py` |
@@ -32,7 +33,7 @@ pytest tests/ -v
 
 **Golden Master:** D-LOC-01 · T2 · U-IN-01 — `tests/golden/` · [`Report/010`](docs/Report/010-arrr-gm-u-in-01-golden.md)
 
-현재: **`pytest tests/ -v` → 11 passed**
+현재: **`pytest tests/ -v` → 12 passed**
 
 ### ECB 구현 맵
 
@@ -48,8 +49,7 @@ pytest tests/ -v
 
 | 우선순위 | Epic | TC (안) | To-Do |
 |----------|------|---------|-------|
-| 1 | E-HINT | D-HINT-02 | 빈칸 1개일 때 힌트 |
-| 2 | — | — | `green` → `main` merge |
+| 1 | — | — | `green` → `main` merge |
 
 브랜치: `spec` → `red` → `green` · 규칙: [`.cursorrules`](.cursorrules)
 
@@ -85,5 +85,5 @@ spec → red (RED) → green (GREEN → REFACTOR → export) → main
 | [`docs/test-plan.md`](docs/test-plan.md) | test-plan 백로그 (1~4 완료) |
 | [`docs/c2c-dual-track-concepts.md`](docs/c2c-dual-track-concepts.md) | C2C · Dual-Track · ARRR |
 | [`docs/learning-guide.md`](docs/learning-guide.md) | Mom Test · 브랜치별 절차 |
-| [`docs/Report/`](docs/Report/) | ARRR 사이클 보고 (001~011) |
+| [`docs/Report/`](docs/Report/) | ARRR 사이클 보고 (001~012) |
 | [`AGENTS.md`](AGENTS.md) | 실행 · ECB 구조 |
