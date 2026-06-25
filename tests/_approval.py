@@ -35,3 +35,9 @@ def format_validation(result: dict[str, object]) -> str:
     lines.append("# status")
     lines.append("# failed_lines (R→C→D order)")
     return "\n".join(lines) + "\n"
+
+
+def format_error_code(error: str | None) -> str:
+    lines = [error if error is not None else "None"]
+    lines.append("# error_code or None")
+    return "\n".join(lines) + "\n"
