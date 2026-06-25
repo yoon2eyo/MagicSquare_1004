@@ -29,7 +29,7 @@ pytest tests/ -v
 | C-FLOW-01 | E-FLOW | C | Control | `tests/control/test_c_flow_01_partial_grid_analysis.py` |
 | C-FLOW-02 | E-FLOW | C | Control | `tests/control/test_c_flow_02_none_grid_returns_e003.py` |
 
-**Golden Master:** D-LOC-01 · T2 — `tests/golden/` · [`Report/009`](docs/Report/009-arrr-gm-t2-golden.md)
+**Golden Master:** D-LOC-01 · T2 · U-IN-01 — `tests/golden/` · [`Report/010`](docs/Report/010-arrr-gm-u-in-01-golden.md)
 
 현재: **`pytest tests/ -v` → 10 passed**
 
@@ -47,10 +47,9 @@ pytest tests/ -v
 
 | 우선순위 | Epic | TC (안) | To-Do |
 |----------|------|---------|-------|
-| 1 | E-GM | GM-U-IN-01 | U-IN-01 golden 확장 |
-| 2 | E-IN | U-IN-04 | 격자 크기 ≠ 4×4 처리 |
-| 3 | E-HINT | D-HINT-02 | 빈칸 1개일 때 힌트 |
-| 4 | — | — | `green` → `main` merge |
+| 1 | E-IN | U-IN-04 | 격자 크기 ≠ 4×4 처리 |
+| 2 | E-HINT | D-HINT-02 | 빈칸 1개일 때 힌트 |
+| 3 | — | — | `green` → `main` merge |
 
 브랜치: `spec` → `red` → `green` · 규칙: [`.cursorrules`](.cursorrules)
 
@@ -86,5 +85,5 @@ spec → red (RED) → green (GREEN → REFACTOR → export) → main
 | [`docs/test-plan.md`](docs/test-plan.md) | test-plan 백로그 (1~4 완료) |
 | [`docs/c2c-dual-track-concepts.md`](docs/c2c-dual-track-concepts.md) | C2C · Dual-Track · ARRR |
 | [`docs/learning-guide.md`](docs/learning-guide.md) | Mom Test · 브랜치별 절차 |
-| [`docs/Report/`](docs/Report/) | ARRR 사이클 보고 (001~009) |
+| [`docs/Report/`](docs/Report/) | ARRR 사이클 보고 (001~010) |
 | [`AGENTS.md`](AGENTS.md) | 실행 · ECB 구조 |

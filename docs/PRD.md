@@ -103,7 +103,7 @@
 #### E-GM — Golden Master
 
 - **인프라:** `tests/_approval.py`, `tests/golden/`
-- **대상:** D-LOC-01 ✅ · **T2** ✅ (확장: U-IN-01)
+- **대상:** D-LOC-01 ✅ · T2 ✅ · **U-IN-01** ✅
 
 ---
 
@@ -140,6 +140,7 @@
 |-------|------|-------|------|-----|------|
 | AC-GM-01 | E-GM | D-LOC-01 PASS | golden ↔ `find_blank_coords` 출력 일치 | GM-D-LOC-01 | ✅ |
 | AC-GM-02 | E-GM | T2 PASS | golden ↔ `validate_lines` fail 출력 일치 | GM-T2 | ✅ |
+| AC-GM-03 | E-GM | U-IN-01 PASS | golden ↔ `check_grid_input` E003 일치 | GM-U-IN-01 | ✅ |
 
 ### AC 판정 우선순위 (`check_grid_input`)
 
@@ -172,6 +173,7 @@
 | E-FLOW · E-GM · E-IN · E-HINT | test-plan 1~4 | C-FLOW-01, GM, U-IN-03, D-HINT-01 | [007](Report/007-arrr-test-plan-backlog.md) |
 | E-FLOW | None → E003 (Control) | C-FLOW-02 | [008](Report/008-arrr-c-flow-02-control.md) |
 | E-GM | T2 golden | GM-T2 | [009](Report/009-arrr-gm-t2-golden.md) |
+| E-GM | U-IN-01 golden | GM-U-IN-01 | [010](Report/010-arrr-gm-u-in-01-golden.md) |
 
 ---
 
